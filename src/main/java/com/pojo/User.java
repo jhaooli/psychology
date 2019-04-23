@@ -8,16 +8,16 @@ package com.pojo;
  */
 public class User {
 
-    private String username;
+    private String usernamed;
     private String password;
     private String salt;
 
-    public String getUsername() {
-        return username;
+    public String getUsernamed() {
+        return usernamed;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsernamed(String usernamed) {
+        this.usernamed = usernamed;
     }
 
     public String getPassword() {

@@ -20,6 +20,15 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public boolean login(User user) {
+        /**
+         * @Description
+         * @author      jhao
+         * @param       [user]
+         * @return      boolean
+         * @exception   
+         * @date        2019/4/21 23:10
+         */
+        
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
         try {

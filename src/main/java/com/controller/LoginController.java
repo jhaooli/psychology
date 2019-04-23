@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.pojo.User;
 import com.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,9 +27,9 @@ public class LoginController {
     LoginService loginService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String list(Model model) {
+    public String login(User user) {
         /**
-         * 方法实现说明
+         * @Description 普通用户未登录的login
          * @author      jhao
          * @param       [model]
          * @return      java.lang.String
@@ -36,7 +37,12 @@ public class LoginController {
          * @date        2019/4/21 11:17
          */
 
+        if(loginService.login(user)){
+            return "login";
+        }else {
+            return "index";
+        }
 
-        return "login";
+
     }
 }

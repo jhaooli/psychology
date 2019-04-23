@@ -1,6 +1,7 @@
 package com.realm;
 
 import com.pojo.User;
+import com.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -42,6 +43,15 @@ public class DatabaseRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+        /**
+         * @Description
+         * @author      jhao
+         * @param       [token]
+         * @return      org.apache.shiro.authc.AuthenticationInfo
+         * @exception   
+         * @date        2019/4/21 23:12
+         */
+        
         //获取账号密码
         UsernamePasswordToken t = (UsernamePasswordToken) token;
         String userName= token.getPrincipal().toString();
