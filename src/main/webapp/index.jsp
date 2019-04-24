@@ -5,7 +5,13 @@
 
 <body>
 <h2>Hello World!</h2>
-<form action="/leave/leave" method="POST">
+<form action="/reservation/createReservation" method="POST">
+    <input type="date" name="dates" />
+    <button type="submit">submit</button>
+</form>
+
+<form action="/reservation/updateReservation" method="POST">
+
     <button type="submit">submit</button>
 </form>
 </body>

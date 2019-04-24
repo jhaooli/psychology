@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ReservationDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+
+
+    <!--
+    <update id="updateReservation">
+        <!- - 具体的sql
+        UPDATE psychology
+        SET number = number - 1
+        WHERE
+
+
+    </update>
+    -->
+
+
+
+    <select id="listAllReservation" resultType="reservation">
+        SELECT *
+        FROM reservation
+        ORDER BY id DESC
+
+    </select>
+
+    <select id="listAllReservationByMemberId" resultType="reservation" parameterType="java.lang.Integer">
+        SELECT *
+        FROM reservation
+        WHERE member_id = #{memberId}
+        ORDER BY id DESC
+
+    </select>
+
+    <select id="listAllReservationByStudentId" resultType="reservation" parameterType="java.lang.Integer">
+        SELECT *
+        FROM reservation
+        WHERE student_id = #{studentId}
+        ORDER BY id DESC
+
+    </select>
+
+    <insert id="createReservation">
+        INSERT INTO reservation(context, member_id, member_name, student_id, student_name, dates)
+        VALUES (#{context}, #{memberId}, #{memberName}, #{studentId}, #{studentName}, #{date})
+    </insert>
+
+    <update id="updateReservation">
+        UPDATE reservation
+        SET context=#{context}, member_id=#{memberId} ,member_name=#{memberName}
+        WHERE  id=#{id}
+    </update>
+
+    <delete id="deleteReservation">
+        DELETE FROM reservation
+        WHERE id=#{id}
+
+    </delete>
+</mapper>

@@ -4,6 +4,7 @@ import com.dao.ReservationDao;
 import com.pojo.Reservation;
 import com.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @Description
  * @Modified by:
  */
+@Service
 public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
@@ -26,7 +28,7 @@ public class ReservationServiceImpl implements ReservationService {
          * @param       []
          * @return      java.util.List<com.pojo.Reservation>
          * @exception   
-         * @date        2019/4/23 14:50
+         * @date        2019/4/23 15:01
          */
         return reservationDao.listAllReservation();
     }

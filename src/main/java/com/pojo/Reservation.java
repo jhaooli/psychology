@@ -12,10 +12,10 @@ public class Reservation {
 
     private String studentName;
     private String memberName;
-    private Date date;
+    private Date dates;
     private int id;
     private boolean wasFinish;
-    private int context;
+    private String context;
     private int studentId;
     private int memberId;
 
@@ -51,12 +51,12 @@ public class Reservation {
         this.memberName = memberName;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDates() {
+        return dates;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDates(Date dates) {
+        this.dates = dates;
     }
 
     public int getId() {
@@ -75,11 +75,25 @@ public class Reservation {
         this.wasFinish = wasFinish;
     }
 
-    public int getContext() {
+    public String getContext() {
         return context;
     }
 
-    public void setContext(int context) {
+    public void setContext(String context) {
         this.context = context;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "studentName='" + studentName + '\'' +
+                ", memberName='" + memberName + '\'' +
+                ", dates=" + dates +
+                ", id=" + id +
+                ", wasFinish=" + wasFinish +
+                ", context='" + context + '\'' +
+                ", studentId=" + studentId +
+                ", memberId=" + memberId +
+                '}';
     }
 }

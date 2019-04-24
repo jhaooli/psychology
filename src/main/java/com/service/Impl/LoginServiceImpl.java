@@ -30,7 +30,7 @@ public class LoginServiceImpl implements LoginService {
          */
         
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsernamed(),user.getPassword());
         try {
             subject.login(token);
         }catch (AuthenticationException e){
