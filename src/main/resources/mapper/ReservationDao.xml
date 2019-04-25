@@ -3,20 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.ReservationDao">
-    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <resultMap id="BaseResultMap" type="com.pojo.Reservation">
+        <result column="date" jdbcType="DATE" property="dates"  javaType="java.util.Date"/>
 
-
-    <!--
-    <update id="updateReservation">
-        <!- - 具体的sql
-        UPDATE psychology
-        SET number = number - 1
-        WHERE
-
-
-    </update>
-    -->
-
+    </resultMap>
 
 
     <select id="listAllReservation" resultType="reservation">
@@ -43,13 +33,13 @@
     </select>
 
     <insert id="createReservation">
-        INSERT INTO reservation(context, member_id, member_name, student_id, student_name, dates)
+        INSERT INTO reservation(context, member_id, member_name, student_id, student_name, date)
         VALUES (#{context}, #{memberId}, #{memberName}, #{studentId}, #{studentName}, #{date})
     </insert>
 
     <update id="updateReservation">
         UPDATE reservation
-        SET context=#{context}, member_id=#{memberId} ,member_name=#{memberName}
+        SET context=#{context}, member_id=#{memberId} , member_name=#{memberName}, DATE=#{date}
         WHERE  id=#{id}
     </update>
 

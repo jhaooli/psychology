@@ -1,5 +1,9 @@
 package com.pojo;
 
+
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -12,7 +16,9 @@ public class Reservation {
 
     private String studentName;
     private String memberName;
-    private Date dates;
+
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date date;
     private int id;
     private boolean wasFinish;
     private String context;
@@ -51,12 +57,12 @@ public class Reservation {
         this.memberName = memberName;
     }
 
-    public Date getDates() {
-        return dates;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDates(Date dates) {
-        this.dates = dates;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public int getId() {
@@ -88,7 +94,7 @@ public class Reservation {
         return "Reservation{" +
                 "studentName='" + studentName + '\'' +
                 ", memberName='" + memberName + '\'' +
-                ", dates=" + dates +
+                ", date=" + date +
                 ", id=" + id +
                 ", wasFinish=" + wasFinish +
                 ", context='" + context + '\'' +

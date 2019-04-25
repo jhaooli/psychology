@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.BookDao">
+
+
+    <select id="listAllBooks" resultType="book">
+        SELECT *
+        FROM books
+        ORDER BY id DESC
+
+    </select>
+
+    <select id="listBooksByName" resultType="book" parameterType="java.lang.String">
+        SELECT *
+        FROM books
+        WHERE book_name = #{bookName}
+        ORDER BY id DESC
+
+    </select>
+
+
+
+    <insert id="createBook">
+        INSERT INTO books(context, member_id, member_name, student_id, student_name, dates)
+        VALUES (#{context}, #{memberId}, #{memberName}, #{studentId}, #{studentName}, #{date})
+    </insert>
+
+    <update id="updateBook">
+        UPDATE books
+        SET context=#{context}, member_id=#{memberId} ,member_name=#{memberName}
+        WHERE  id=#{id}
+    </update>
+
+    <delete id="deleteBook">
+        DELETE FROM books
+        WHERE id=#{id}
+
+    </delete>
+</mapper>
