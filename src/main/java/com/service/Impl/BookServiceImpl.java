@@ -1,8 +1,10 @@
 package com.service.Impl;
 
+import com.dao.BookDao;
 import com.pojo.Book;
 import com.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,10 +14,11 @@ import java.util.List;
  * @Description
  * @Modified by:
  */
+@Service
 public class BookServiceImpl implements BookService{
 
     @Autowired
-    BookService bookService;
+    BookDao bookDao;
 
     @Override
     public List<Book> listAllBooks() {
@@ -27,7 +30,7 @@ public class BookServiceImpl implements BookService{
          * @exception   
          * @date        2019/4/24 22:36
          */
-        return bookService.listAllBooks();
+        return bookDao.listAllBooks();
     }
 
     @Override
@@ -40,7 +43,7 @@ public class BookServiceImpl implements BookService{
          * @exception   
          * @date        2019/4/24 22:42
          */
-        return bookService.listBooksByName(book);
+        return bookDao.listBooksByName(book);
     }
 
     @Override
@@ -53,7 +56,7 @@ public class BookServiceImpl implements BookService{
          * @exception
          * @date        2019/4/24 22:42
          */
-        return bookService.createBook(book);
+        return bookDao.createBook(book);
     }
 
     @Override
@@ -66,7 +69,7 @@ public class BookServiceImpl implements BookService{
          * @exception
          * @date        2019/4/24 22:43
          */
-        return bookService.updateBook(book);
+        return bookDao.updateBook(book);
     }
 
     @Override
@@ -79,6 +82,6 @@ public class BookServiceImpl implements BookService{
          * @exception
          * @date        2019/4/24 22:43
          */
-        return bookService.deleteBook(book);
+        return bookDao.deleteBook(book);
     }
 }

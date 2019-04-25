@@ -29,15 +29,16 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(User user) {
         /**
-         * @Description 普通用户未登录的login
+         * @Description
          * @author      jhao
-         * @param       [model]
+         * @param       [user]
          * @return      java.lang.String
-         * @exception
-         * @date        2019/4/21 11:17
+         * @exception   
+         * @date        2019/4/25 22:57
          */
 
         if(loginService.login(user)){
+            //登录成功
             return "login";
         }else {
             return "index";

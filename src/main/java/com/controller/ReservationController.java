@@ -27,8 +27,7 @@ public class ReservationController {
 
 
     @RequestMapping("/getReservation")
-    @ResponseBody
-    public List<Reservation> getReservation(Reservation reservation,Model model){
+    public String getReservation(Reservation reservation,Model model){
 
     /**
      * @Description  获取所有的预约
@@ -41,8 +40,8 @@ public class ReservationController {
         List<Reservation> reservationList = reservationService.listAllReservation();
         model.addAttribute("reservationList",reservationList);
 
-        return reservationList;
-        //return "/reservation/getReservation";
+        //return reservationList;
+        return "/reservation/getReservation";
     }
 
     @RequestMapping(value = "/createReservation",method = RequestMethod.POST)
@@ -109,8 +108,7 @@ public class ReservationController {
 
 
     @RequestMapping("listAllReservationByMemberId")
-    @ResponseBody
-    public List<Reservation> listAllReservationByMemberId(Reservation reservation){
+    public String listAllReservationByMemberId(Reservation reservation){
         /**
          * @Description  //通过咨询师id获取ta的所以预约
          * @author      jhao
@@ -121,19 +119,18 @@ public class ReservationController {
          */
         try{
             List<Reservation> reservationList = reservationService.listAllReservationByMemberId(reservation);
-            return reservationList;
-            //return "/reservation/getReservation";
+            //return reservationList;
+            return "/reservation/getReservation";
         }catch (Exception e){
             e.printStackTrace();
-            //return "/errors/error";
-            return null;
+            return "/errors/error";
+            //return null;
         }
     }
 
 
     @RequestMapping("listAllReservationByStudentId")
-    @ResponseBody
-    public List<Reservation> listAllReservationByStudentId(Reservation reservation){
+    public String listAllReservationByStudentId(Reservation reservation){
         /**
          * @Description //通过学生id获取ta的所有预约
          * @author      jhao
@@ -144,12 +141,12 @@ public class ReservationController {
          */
         try{
             List<Reservation> reservationList = reservationService.listAllReservationByStudentId(reservation);
-            return reservationList;
-            //return "/reservation/getReservation";
+            //return reservationList;
+            return "/reservation/getReservation";
         }catch (Exception e){
             e.printStackTrace();
-            //return "/errors/error";
-            return null;
+            return "/errors/error";
+            //return null;
         }
     }
 

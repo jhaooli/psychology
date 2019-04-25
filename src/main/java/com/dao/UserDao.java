@@ -21,4 +21,6 @@ public interface UserDao {
      */
     User getByName(String username);
 
+    User getUserToken(User user);
+
 }

@@ -5,6 +5,7 @@ import com.pojo.Member;
 import com.pojo.Student;
 import com.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -14,7 +15,8 @@ import java.util.List;
  * @Description
  * @Modified by:
  */
-public class AccountServiceImpl implements AccountService {
+@Service
+class AccountServiceImpl implements AccountService {
 
     @Autowired
     AccountDao accountDao;
