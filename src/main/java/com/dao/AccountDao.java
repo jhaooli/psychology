@@ -17,7 +17,7 @@ public interface AccountDao {
     List<Student> listAllStudentAccount();
 
     //获取所有咨询师账号的信息
-    List<Student> listAllMemberAccount();
+    List<Member> listAllMemberAccount();
 
     //修改密码
     int updateStudentPassword(Student student);

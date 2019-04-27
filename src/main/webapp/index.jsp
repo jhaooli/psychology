@@ -15,5 +15,11 @@
     <input name="id" value="11">
     <button type="submit">submit</button>
 </form>
+
+<form action="/new/login" method="POST">
+    <input type="date" name="date" />
+    <input name="id" value="11">
+    <button type="submit">submit</button>
+</form>
 </body>
 </html>

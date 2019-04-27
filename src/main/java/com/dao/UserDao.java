@@ -21,6 +21,14 @@ public interface UserDao {
      */
     User getByName(String username);
 
+    /**
+     * @Description 获取学生账号
+     * @author      jhao
+     * @param
+     * @return
+     * @exception
+     * @date        2019/4/27 9:24
+     */
     User getUserToken(User user);
 
 }

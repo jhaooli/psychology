@@ -20,7 +20,8 @@ import java.util.List;
 * @UpdateRemark:
 * @Version:        1.0
 */
-@Controller("/new")
+@Controller
+@RequestMapping("/new")
 public class LoginController {
 
     @Autowired
@@ -36,9 +37,10 @@ public class LoginController {
          * @exception   
          * @date        2019/4/25 22:57
          */
-
+        System.out.println("登录验证中 " + user.toString());
         if(loginService.login(user)){
             //登录成功
+            System.out.println("登录成功 "+ user.toString());
             return "login";
         }else {
             return "index";

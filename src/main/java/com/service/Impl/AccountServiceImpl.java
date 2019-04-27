@@ -35,12 +35,12 @@ class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<Student> listAllMemberAccount() {
+    public List<Member> listAllMemberAccount() {
         /**
          * @Description
          * @author      jhao
          * @param       []
-         * @return      java.util.List<com.pojo.Student>
+         * @return      java.util.List<com.pojo.Member>
          * @exception   
          * @date        2019/4/25 19:54
          */
