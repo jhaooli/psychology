@@ -34,11 +34,7 @@ public class LeaveController {
         return "getLeave";
     }
 
-    @RequestMapping(value = "/updateleave", method = RequestMethod.POST)
-    public String updateLeave(Model model) {
 
-        return "updateLeave";
-    }
 
     @RequestMapping(value = "/deleteleave", method = RequestMethod.POST)
     public String deleteLeave(Model model) {

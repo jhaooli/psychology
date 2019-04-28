@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.FeedbackDao">
+
+
+    <select id="listAllFeedback" resultType="feedback">
+        select student_id,student_name,member_id,member_name,reservation_id
+        from feedback
+    </select>
+
+    <select id="listAllFeedbackForOneMember" resultType="feedback">
+      select student_id,student_name,member_id,member_name,reservation_id
+      from feedback
+      WHERE  member_id=#{memberId}
+    </select>
+
+    <select id="listAllFeedbackForOneStudent" resultType="feedback">
+      select student_id,student_name,member_id,member_name,reservation_id
+      from feedback
+      WHERE  student_id=#{studentId}
+    </select>
+
+    <select id="selectOneFeedbackByReservationId" resultType="feedback">
+
+      select *
+      from feedback
+      WHERE  reservation_id=#{reservationId}
+    </select>
+
+
+
+
+    <update id="updateFeedback">
+        UPDATE feedback
+        SET feedbacks=#{feedbacks}
+        WHERE  reservation_id=#{reservationId}
+    </update>
+
+    <insert id="insertFeedback">
+      INSERT INTO feedback
+      VALUES (#{reservationId}, #{studentName}, #{studentId}, #{memberId}, #{memberName}, #{feedbacks})
+    </insert>
+
+    <delete id="deleteFeedback">
+      DELETE FROM feedback
+      WHERE reservation_id=#{reservationId}
+    </delete>
+
+
+
+</mapper>

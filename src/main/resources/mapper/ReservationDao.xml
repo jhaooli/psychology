@@ -39,7 +39,7 @@
 
     <update id="updateReservation">
         UPDATE reservation
-        SET context=#{context}, member_id=#{memberId} , member_name=#{memberName}, DATE=#{date}
+        SET context=#{context}, member_id=#{memberId} , member_name=#{memberName}, DATE=#{date}, was_finish=#{wasFinish}
         WHERE  id=#{id}
     </update>
 
