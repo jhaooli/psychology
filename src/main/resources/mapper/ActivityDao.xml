@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ActivityDao">
+
+
+    <select id="selectActivity" resultType="activity">
+        select *
+        from activity
+        WHERE id=#{id}
+    </select>
+
+
+
+    <select id="listAllActivity" resultType="activity">
+
+        select * from activity
+    </select>
+
+
+
+
+    <update id="updateActivity">
+        UPDATE activity
+        SET title=#{title}, content=#{content}
+        WHERE  id=#{id}
+    </update>
+
+    <insert id="insertActivity">
+        INSERT INTO activity(title, content)
+        VALUES (#{title}, #{content})
+    </insert>
+
+    <delete id="deleteActivity">
+        DELETE FROM activity
+        WHERE id=#{id}
+    </delete>
+
+
+
+</mapper>
