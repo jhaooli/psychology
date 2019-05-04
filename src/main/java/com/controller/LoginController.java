@@ -59,7 +59,7 @@ public class LoginController {
          * @param       [user]
          * @return      java.lang.String
          * @exception   
-         * @date        2019/5/4 21:11
+         * @date        2019/5/4 21:55
          */
         loginService.signUp(user);
         return null;
