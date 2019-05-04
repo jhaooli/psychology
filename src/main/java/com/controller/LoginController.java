@@ -48,4 +48,20 @@ public class LoginController {
 
 
     }
+
+
+    @RequestMapping(value = "signUp",method = RequestMethod.POST)
+    public String signUp(User user){
+
+        /**
+         * @Description
+         * @author      jhao
+         * @param       [user]
+         * @return      java.lang.String
+         * @exception   
+         * @date        2019/5/4 21:11
+         */
+        loginService.signUp(user);
+        return null;
+    }
 }

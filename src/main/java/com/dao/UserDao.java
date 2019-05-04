@@ -31,4 +31,6 @@ public interface UserDao {
      */
     User getUserToken(User user);
 
+    int insertUser(User user);
+
 }

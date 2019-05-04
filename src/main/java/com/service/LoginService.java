@@ -12,4 +12,6 @@ public interface LoginService {
 
     boolean login(User user);
 
+    boolean signUp(User user);
+
 }

@@ -50,4 +50,10 @@ public class LoginServiceImpl implements LoginService {
 
 
     }
+
+    @Override
+    public boolean signUp(User user) {
+        int tmp = userDao.insertUser(user);
+        return tmp==1?true:false;
+    }
 }

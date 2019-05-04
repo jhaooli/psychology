@@ -13,6 +13,11 @@
 
     </select>
 
+    <insert id="insertUser">
+        INSERT INTO student(usernamed, password)
+        VALUES (#{usernamed}, #{password})
+
+    </insert>
 
 
 
