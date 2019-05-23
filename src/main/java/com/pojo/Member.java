@@ -7,9 +7,19 @@ package com.pojo;
  * @Modified by:
  */
 public class Member {
+
+    private int id;
     private String usernamed;
     private String password;
     private String salt;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsernamed() {
         return usernamed;

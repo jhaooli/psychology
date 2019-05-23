@@ -5,6 +5,12 @@
 <mapper namespace="com.dao.UserDao">
 
 
+    <select id="getUserId" resultType="user">
+        SELECT *
+        FROM student
+        WHERE usernamed=#{usernamed}
+
+    </select>
 
     <select id="getUserToken" resultType="user">
         SELECT *

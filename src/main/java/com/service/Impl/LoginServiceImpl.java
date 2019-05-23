@@ -56,4 +56,9 @@ public class LoginServiceImpl implements LoginService {
         int tmp = userDao.insertUser(user);
         return tmp==1?true:false;
     }
+
+    @Override
+    public User getUserId(User user) {
+        return userDao.getUserId(user);
+    }
 }

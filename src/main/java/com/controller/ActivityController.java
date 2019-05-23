@@ -4,6 +4,7 @@ import com.pojo.Activity;
 import com.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,10 +33,16 @@ public class ActivityController {
      * @date        2019/5/3 22:10
      */
     @RequestMapping(value = "insertActivity",method = RequestMethod.POST)
-    public String insertActivity(Activity activity){
+    public String insertActivity(Activity activity,Model model){
 
         activityService.insertActivity(activity);
-        return null;
+        List<Activity> activityList = activityService.listAllActivity();
+        for (Activity a : activityList) {
+            a.setId(a.getId()%8);
+        }
+
+        model.addAttribute("detailList",activityList);
+        return "/activity/admin-activity";
     }
 
     /**
@@ -61,7 +68,7 @@ public class ActivityController {
      * @exception
      * @date        2019/5/3 22:21
      */
-    @RequestMapping(value = "deleteActivity",method = RequestMethod.POST)
+    @RequestMapping(value = "deleteActivity",method = RequestMethod.GET)
     public String deleteActivity(Activity activity){
 
         activityService.deleteActivity(activity);
@@ -88,5 +95,92 @@ public class ActivityController {
 
         activityService.selectActivity(activity);
         return null;
+    }
+
+
+    /**
+     * @Description 跳转到新建活动页面
+     * @author      jhao
+     * @param
+     * @return
+     * @exception
+     * @date        2019/5/21 10:53
+     */
+    /*
+    @RequestMapping(value = "creation",method = RequestMethod.GET)
+    public String creation(Activity activity){
+
+
+        return "/activity/activity-create";
+    }
+    */
+
+    /**
+     * @Description 跳转到删除活动页面
+     * @author      jhao
+     * @param
+     * @return
+     * @exception
+     * @date        2019/5/21 10:53
+     */
+    @RequestMapping(value = "deletion",method = RequestMethod.GET)
+    public String deletion(Activity activity){
+
+        return "/activity/activity-deletion";
+    }
+
+    /**
+     * @Description 跳转到更新活动页面
+     * @author      jhao
+     * @param
+     * @return
+     * @exception
+     * @date        2019/5/21 10:53
+     */
+    @RequestMapping(value = "update",method = RequestMethod.GET)
+    public String update(Activity activity){
+
+        return "/activity/activity-update";
+    }
+
+
+    /**
+     * @Description 跳转到更新活动页面
+     * @author      jhao
+     * @param
+     * @return
+     * @exception
+     * @date        2019/5/21 10:53
+     */
+    @RequestMapping(value = "selection",method = RequestMethod.GET)
+    public String selection(Activity activity,Model model){
+
+        List<Activity> activityList = activityService.listAllActivity();
+        for (Activity a : activityList) {
+            a.setId(a.getId()%8);
+        }
+
+        model.addAttribute("detailList",activityList);
+        return "/activity/activity";
+    }
+
+    /**
+     * @Description 管理员跳转到活动管理界面
+     * @author      jhao
+     * @param
+     * @return
+     * @exception
+     * @date        2019/5/22 13:37
+     */
+    @RequestMapping(value = "admin-selection",method = RequestMethod.GET)
+    public String selectionByAdmin(Activity activity,Model model){
+
+        List<Activity> activityList = activityService.listAllActivity();
+        for (Activity a : activityList) {
+            a.setId(a.getId()%8);
+        }
+
+        model.addAttribute("detailList",activityList);
+        return "/activity/admin-activity";
     }
 }

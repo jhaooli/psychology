@@ -4,9 +4,11 @@ import com.pojo.Feedback;
 import com.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -102,9 +104,18 @@ public class FeedbackController {
      * @date        2019/4/28 13:07
      */
     @RequestMapping("listAllFeedbackForOneStudent")
-    public String listAllFeedbackForOneStudent(Feedback feedback){
-        feedbackService.listAllFeedbackForOneStudent(feedback);
-        return null;
+    public String listAllFeedbackForOneStudent(Feedback feedback, Model model, HttpSession httpSession){
+
+        Integer id = (Integer) httpSession.getAttribute("studentId");
+        String studentName = (String) httpSession.getAttribute("studentName");
+        if(studentName == null && id == null){
+            System.out.println("仍未登录/非法访问");
+            return "error";
+        }
+        feedback.setStudentId(id);
+        List<Feedback> feedbackList = feedbackService.listAllFeedbackForOneStudent(feedback);
+        model.addAttribute("detailList",feedbackList);
+        return "/feedback/feedbacks";
     }
 
     /**

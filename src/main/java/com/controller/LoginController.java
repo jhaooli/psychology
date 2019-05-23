@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.pojo.Student;
 import com.pojo.User;
 import com.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -28,7 +30,7 @@ public class LoginController {
     LoginService loginService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(User user) {
+    public String login(User user, HttpSession httpSession) {
         /**
          * @Description
          * @author      jhao
@@ -40,10 +42,13 @@ public class LoginController {
         System.out.println("登录验证中 " + user.toString());
         if(loginService.login(user)){
             //登录成功
+            httpSession.setAttribute("studentName",user.getUsernamed());
+            httpSession.setAttribute("studentId",loginService.getUserId(user).getId());
             System.out.println("登录成功 "+ user.toString());
-            return "login";
+            return "/account/logined";
         }else {
-            return "index";
+
+            return "error";
         }
 
 

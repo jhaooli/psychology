@@ -14,4 +14,5 @@ public interface LoginService {
 
     boolean signUp(User user);
 
+    User getUserId(User user);
 }

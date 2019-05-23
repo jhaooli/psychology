@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -150,4 +151,56 @@ public class ReservationController {
         }
     }
 
+    @RequestMapping("selections")
+    public String reservationSelection(Model model, Reservation reservation,HttpSession httpServletSession){
+        System.out.println("跳转到selection页面");
+        Integer id = (Integer) httpServletSession.getAttribute("studentId");
+        String studentName = (String) httpServletSession.getAttribute("studentName");
+        if(studentName == null && id == null){
+            System.out.println("仍未登录/非法访问");
+            return "error";
+        }
+        reservation.setId(id);
+        List<Reservation> reservationList = reservationService.listAllReservationByStudentId(reservation);
+        model.addAttribute("detailList",reservationList);
+        return "/reservation/reservation-selections";
+    }
+
+    @RequestMapping("update")
+    public String reservationUpdate(Model model, Reservation reservation,HttpSession httpServletSession){
+        System.out.println("跳转到update页面");
+        Integer id = (Integer) httpServletSession.getAttribute("studentId");
+        String studentName = (String) httpServletSession.getAttribute("studentName");
+        if(studentName == null && id == null){
+            System.out.println("仍未登录/非法访问");
+            return "error";
+        }
+        reservation.setId(id);
+        List<Reservation> reservationList = reservationService.listAllReservationByStudentId(reservation);
+        model.addAttribute("detailList",reservationList);
+        return "/reservation/reservation-update";
+    }
+
+    @RequestMapping("reservations")
+    public String reservations(){
+        System.out.println("跳转到reservation页面");
+        return "/reservation/reservations";
+    }
+
+    @RequestMapping("selections-admin")
+    public String reservationSelectionAdmin(Model model, Reservation reservation,HttpSession httpServletSession){
+        System.out.println("跳转到Guanliyuan页面");
+        /*
+        Integer id = (Integer) httpServletSession.getAttribute("studentId");
+        String studentName = (String) httpServletSession.getAttribute("studentName");
+        if(studentName == null && id == null){
+            System.out.println("仍未登录/非法访问");
+            return "error";
+        }
+        reservation.setId(id);
+        */
+        List<Reservation> reservationList = reservationService.listAllReservation();
+        model.addAttribute("detailList",reservationList);
+        return "/admin/reservation-selections";
+    }
 }

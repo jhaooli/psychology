@@ -8,9 +8,18 @@ package com.pojo;
  */
 public class User {
 
+    private int id;
     private String usernamed;
     private String password;
     private String salt;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsernamed() {
         return usernamed;
