@@ -32,4 +32,10 @@ public interface ReservationService{
 
     //管理员获取所有预约
     Reservation getReservation(Reservation reservation);
+
+    //咨询师完成咨询
+    int finish(Reservation reservation);
+
+    //咨询师接受咨询
+    int acception(Reservation reservation);
 }

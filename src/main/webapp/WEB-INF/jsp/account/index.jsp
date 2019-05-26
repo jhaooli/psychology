@@ -53,7 +53,7 @@
                             <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
                             <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
                         </ul>
-                        <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Sign In</span></a><a href="customer-register11.html" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Sign Up</span></a></div>
+                        <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Sign In</span></a><a href="#" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Sign Up</span></a></div>
                         <ul class="social-custom list-inline">
                             <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -230,8 +230,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="box-simple">
-                        <div class="icon-outlined"><a href="#"><i class="fa fa-user"></i></a></div>
-                        <h3 class="h4">管理员入口</h3>
+                        <div class="icon-outlined"><a href="/advisoryLogin"><i class="fa fa-user"></i></a></div>
+                        <h3 class="h4">心理咨询师入口</h3>
                         <p>Entrance to a person who performs management functions, directs or coordinates others to complete specific tasks in the organization</p>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import com.dao.UserDao;
+import com.pojo.Member;
 import com.pojo.User;
 import com.service.LoginService;
 import org.apache.shiro.SecurityUtils;
@@ -60,5 +61,19 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public User getUserId(User user) {
         return userDao.getUserId(user);
+    }
+
+    @Override
+    public Member getMemberId(Member member) {
+        return userDao.getMemberId(member);
+    }
+
+    @Override
+    public boolean getMemberToken(Member member) {
+
+         if(userDao.getMemberToken(member)==null){
+             return false;
+         };
+         return true;
     }
 }

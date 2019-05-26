@@ -1,7 +1,9 @@
 package com.controller;
 
 import com.pojo.Feedback;
+import com.pojo.Reservation;
 import com.service.FeedbackService;
+import com.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,8 @@ public class FeedbackController {
     @Autowired
     FeedbackService feedbackService;
 
+    @Autowired
+    ReservationService reservationService;
 
     /**
      * @Description 新增反馈
@@ -104,7 +108,7 @@ public class FeedbackController {
      * @date        2019/4/28 13:07
      */
     @RequestMapping("listAllFeedbackForOneStudent")
-    public String listAllFeedbackForOneStudent(Feedback feedback, Model model, HttpSession httpSession){
+    public String listAllFeedbackForOneStudent(Feedback feedback,Model model, HttpSession httpSession){
 
         Integer id = (Integer) httpSession.getAttribute("studentId");
         String studentName = (String) httpSession.getAttribute("studentName");
@@ -131,4 +135,24 @@ public class FeedbackController {
         feedbackService.selectOneFeedbackByReservationId(feedback);
         return null;
     }
+
+    @RequestMapping("creation")
+    public String creation(Feedback feedback,Model model, HttpSession httpSession){
+
+        Integer id = (Integer) httpSession.getAttribute("memberId");
+        String memberName = (String) httpSession.getAttribute("memberName");
+        if(memberName == null && id == null){
+            System.out.println("仍未登录/非法访问");
+            return "error";
+        }
+        Reservation reservation = new Reservation();
+        reservation.setMemberId(id);
+        List<Reservation> reservationList = reservationService.listAllReservationByMemberId(reservation);
+        for (Reservation reservation1 : reservationList) {
+            System.out.println(reservation1.toString());
+        }
+        model.addAttribute("detailList",reservationList);
+        return "/feedback/feedback-create";
+    }
+
 }

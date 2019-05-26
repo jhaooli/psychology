@@ -63,22 +63,46 @@ public class webController {
     @RequestMapping("reservation-delete")
     public String reservationDeletion(Model model, Reservation reservation,HttpSession httpSession){
         int id = (int)httpSession.getAttribute("studentId");
-        reservation.setId(id);
+        reservation.setStudentId(id);
         List<Reservation> reservationList = reservationService.listAllReservationByStudentId(reservation);
         model.addAttribute("detailList",reservationList);
         return "/reservation/reservation-delete";
     }
 
+
+
+    /**
+     * @Description  跳转到咨询接受页面
+     * @author      jhao
+     * @param
+     * @return
+     * @exception
+     * @date        2019/5/24 14:43
+     */
     @RequestMapping("reservation-accept")
-    public String reservationAccept(){
+    public String reservationAccept(Model model,HttpSession httpSession){
         System.out.println("跳转到接受页面");
+        int memberId = (int)httpSession.getAttribute("memberId");
+        if(memberId==0){
+            return "/error";
+        }
+        Reservation reservation = new Reservation();
+        reservation.setMemberId(memberId);
+        List<Reservation> reservationList = reservationService.listAllReservationByMemberId(reservation);
+        model.addAttribute("detailList",reservationList);
         return "/reservation/reservation-accept";
     }
-
 
     @RequestMapping("activity-create")
     public String activity(){
         System.out.println("跳转到活动页面");
         return "/activity/activity-create";
     }
+
+    @RequestMapping("advisoryLogin")
+    public String advisoryLogin(){
+        System.out.println("跳转到登录界面页面");
+        return "/account/advisory-login";
+    }
+
 }

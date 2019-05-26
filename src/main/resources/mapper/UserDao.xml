@@ -4,6 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.UserDao">
 
+    <select id="getMemberId" resultType="member">
+        SELECT *
+        FROM member
+        WHERE usernamed=#{usernamed}
+
+    </select>
+
+    <select id="getMemberToken" resultType="member">
+        SELECT *
+        FROM member
+        WHERE usernamed=#{usernamed} AND password=#{password}
+
+    </select>
+
+
 
     <select id="getUserId" resultType="user">
         SELECT *

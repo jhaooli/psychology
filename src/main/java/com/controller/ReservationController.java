@@ -26,6 +26,45 @@ public class ReservationController {
     ReservationService reservationService;
 
 
+    /**
+     * @Description 咨询师接受用户预约
+     * @author      jhao
+     * @param
+     * @return
+     * @exception
+     * @date        2019/5/24 14:32
+     */
+    @RequestMapping("/acception")
+    public String acception(Reservation reservation,Model model,HttpSession httpSession){
+
+        int tmp = reservationService.acception(reservation);
+
+        int memberId = (int)httpSession.getAttribute("memberId");
+        if(memberId==0){
+            return "/error";
+        }
+        //Reservation reservation1 = new Reservation();
+        reservation.setMemberId(memberId);
+        List<Reservation> reservationList = reservationService.listAllReservationByMemberId(reservation);
+        model.addAttribute("detailList",reservationList);
+        return tmp==1? "/reservation/reservation-accept" : "error";
+    }
+
+    /**
+     * @Description  完成当前预约
+     * @author      jhao
+     * @param
+     * @return      java.lang.String
+     * @exception
+     * @date        2019/4/23 11:17
+     */
+    @RequestMapping("/finish")
+    public String finish(Reservation reservation,Model model){
+
+        int tmp = reservationService.updateReservation(reservation);
+        return tmp==1? "/reservation/reservation-accept" : "error";
+    }
+
 
     @RequestMapping("/getReservation")
     public String getReservation(Reservation reservation,Model model){
@@ -109,7 +148,7 @@ public class ReservationController {
 
 
     @RequestMapping("listAllReservationByMemberId")
-    public String listAllReservationByMemberId(Reservation reservation){
+    public String listAllReservationByMemberId(Reservation reservation,Model model,HttpSession httpSession){
         /**
          * @Description  //通过咨询师id获取ta的所以预约
          * @author      jhao
@@ -119,9 +158,15 @@ public class ReservationController {
          * @date        2019/4/23 15:21
          */
         try{
+            int memberId = (int)httpSession.getAttribute("memberId");
+            if(memberId ==0){
+                return "/error";
+            }
+            reservation.setMemberId(memberId);
             List<Reservation> reservationList = reservationService.listAllReservationByMemberId(reservation);
             //return reservationList;
-            return "/reservation/getReservation";
+            model.addAttribute("detailList",reservationList);
+            return "/reservation/reservation-accept";
         }catch (Exception e){
             e.printStackTrace();
             return "/errors/error";
@@ -154,13 +199,15 @@ public class ReservationController {
     @RequestMapping("selections")
     public String reservationSelection(Model model, Reservation reservation,HttpSession httpServletSession){
         System.out.println("跳转到selection页面");
-        Integer id = (Integer) httpServletSession.getAttribute("studentId");
+        //Integer id = (Integer) httpServletSession.getAttribute("studentId");
+        int id = (int)httpServletSession.getAttribute("studentId");
         String studentName = (String) httpServletSession.getAttribute("studentName");
-        if(studentName == null && id == null){
+        System.out.println("session中获取的id =  " + id + " studentName = "+ studentName );
+        if(studentName == null && id == 0){
             System.out.println("仍未登录/非法访问");
             return "error";
         }
-        reservation.setId(id);
+        reservation.setStudentId(id);
         List<Reservation> reservationList = reservationService.listAllReservationByStudentId(reservation);
         model.addAttribute("detailList",reservationList);
         return "/reservation/reservation-selections";
@@ -175,7 +222,7 @@ public class ReservationController {
             System.out.println("仍未登录/非法访问");
             return "error";
         }
-        reservation.setId(id);
+        reservation.setStudentId(id);
         List<Reservation> reservationList = reservationService.listAllReservationByStudentId(reservation);
         model.addAttribute("detailList",reservationList);
         return "/reservation/reservation-update";

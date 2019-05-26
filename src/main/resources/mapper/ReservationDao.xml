@@ -43,6 +43,19 @@
         WHERE  id=#{id}
     </update>
 
+    <update id="finish">
+        UPDATE reservation
+        SET was_finish=true
+        WHERE  id=#{id}
+    </update>
+
+
+    <update id="acception">
+        UPDATE reservation
+        SET was_accept=true
+        WHERE  id=#{id}
+    </update>
+
     <delete id="deleteReservation">
         DELETE FROM reservation
         WHERE id=#{id}

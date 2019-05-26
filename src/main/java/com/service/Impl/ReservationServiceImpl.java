@@ -110,4 +110,14 @@ public class ReservationServiceImpl implements ReservationService {
          */
         return reservationDao.getReservation(reservation);
     }
+
+    @Override
+    public int finish(Reservation reservation) {
+        return reservationDao.finish(reservation);
+    }
+
+    @Override
+    public int acception(Reservation reservation) {
+        return reservationDao.acception(reservation);
+    }
 }

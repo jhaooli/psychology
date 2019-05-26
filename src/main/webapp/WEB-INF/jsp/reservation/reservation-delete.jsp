@@ -87,7 +87,7 @@
             <div class="box-simple">
                 <div class="icon-outlined"></div>
                 <a class="btn btn-lg btn-primary btn-shadow"
-                   href="/reservation" target="_blank" role="button" >
+                   href="/reservation"  role="button" >
                     <h3 class="h4">心理服务预约</h3>
                 </a>
 
@@ -98,7 +98,7 @@
                 <div class="icon-outlined"></div>
 
                 <a class="btn btn-lg btn-primary btn-shadow"
-                   href="/reservation/update" target="_blank" role="button" >
+                   href="/reservation/update"  role="button" >
                     <h3 class="h4">修改预约</h3>
                 </a>
 
@@ -109,7 +109,7 @@
                 <div class="icon-outlined"></div>
 
                 <a class="btn btn-lg btn-primary btn-shadow"
-                   href="/reservation-delete" target="_blank" role="button" >
+                   href="/reservation-delete"  role="button" >
                     <h3 class="h4">取消预约</h3>
                 </a>
 
@@ -120,7 +120,7 @@
                 <div class="icon-outlined"></div>
 
                 <a class="btn btn-lg btn-primary btn-shadow"
-                   href="/reservation/selections" target="_blank" role="button" >
+                   href="/reservation/selections"  role="button" >
                     <h3 class="h4">查询预约</h3>
                 </a>
 

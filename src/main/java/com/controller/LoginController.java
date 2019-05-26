@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.pojo.Member;
 import com.pojo.Student;
 import com.pojo.User;
 import com.service.LoginService;
@@ -69,4 +70,30 @@ public class LoginController {
         loginService.signUp(user);
         return null;
     }
+
+    @RequestMapping(value = "/advisoryLogin", method = RequestMethod.POST)
+    public String advisoryLogin(Member member, HttpSession httpSession) {
+        /**
+         * @Description
+         * @author      jhao
+         * @param       [user]
+         * @return      java.lang.String
+         * @exception
+         * @date        2019/4/25 22:57
+         */
+        System.out.println("登录验证中 " + member.toString());
+        if(loginService.getMemberToken(member)){
+            //登录成功
+            httpSession.setAttribute("memberName",member.getUsernamed());
+            httpSession.setAttribute("memberId",loginService.getMemberId(member).getId());
+            System.out.println("登录成功 "+ member.toString());
+            return "redirect:/reservation-accept";
+        }else {
+
+            return "error";
+        }
+
+
+    }
+
 }

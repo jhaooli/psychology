@@ -2,6 +2,7 @@ package com.pojo;
 
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -24,6 +25,16 @@ public class Reservation {
     private String context;
     private int studentId;
     private int memberId;
+
+    private boolean wasAccept;
+
+    public boolean isWasAccept() {
+        return wasAccept;
+    }
+
+    public void setWasAccept(boolean wasAccept) {
+        this.wasAccept = wasAccept;
+    }
 
     public int getStudentId() {
         return studentId;
@@ -57,6 +68,7 @@ public class Reservation {
         this.memberName = memberName;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     public Date getDate() {
         return date;
     }
