@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.model.ArticleSimilarity;
 import com.pojo.Article;
 
 import java.util.List;
@@ -22,5 +23,5 @@ public interface ArticleDao {
     //获取文章相似度
 
     //添加文章相似度
-    int insertSimilarity();
+    int insertSimilarity(ArticleSimilarity articleSimilarity);
 }

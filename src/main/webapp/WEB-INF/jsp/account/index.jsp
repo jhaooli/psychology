@@ -53,7 +53,7 @@
                             <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
                             <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
                         </ul>
-                        <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Sign In</span></a><a href="#" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Sign Up</span></a></div>
+                        <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">登录</span></a><a href="#" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">注册</span></a><a href="#" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">我是管理员</span></a></div>
                         <ul class="social-custom list-inline">
                             <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -87,7 +87,7 @@
                         </p>
                     </form>
                     <p class="text-center text-muted">Not registered yet?</p>
-                    <p class="text-center text-muted"><a href="customer-register11.html"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+                    <p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
                 </div>
             </div>
         </div>
@@ -195,21 +195,21 @@
                     <div class="box-simple">
                         <div class="icon-outlined"><a href="/reservation"><i class="fa fa-desktop"></i></a></div>
                         <h3 class="h4">心理服务预约</h3>
-                        <p>Multiple ways to make an appointment. Suitable for your psychological counseling</p>
+                        <p>多种预约方式。 适合您的心理咨询</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="box-simple">
-                        <div class="icon-outlined"><a href="#"><i class="fa fa-print"></i></a></div>
+                        <div class="icon-outlined"><a href="/feedback/listAllFeedbackForOneStudent"><i class="fa fa-print"></i></a></div>
                         <h3 class="h4">心理服务反馈</h3>
-                        <p>The content reaction, also known as interpretation or explanation, means that the consultant comprehensively sorts out the main words and thoughts of the help-seeker and then feeds back to the help-seeker.</p>
+                        <p>你可以在这里获取到在线心理反馈</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="box-simple">
                         <div class="icon-outlined"><a href="#"><i class="fa fa-globe"></i></a></div>
                         <h3 class="h4">心理文章</h3>
-                        <p>Psychological processes are not only manifested in the physical activities of human beings, but also in the activities of human interaction. Communication activities are the process of contact, information exchange and mutual understanding between people, that is, the process of interaction between people.</p>
+                        <p>心理学是一门研究人类的心理现象、精神功能和行为的科学，既是一门理论学科，也是一门应用学科。包括基础心理学与应用心理学两大领域。</p>
                     </div>
                 </div>
             </div>
@@ -218,26 +218,28 @@
                     <div class="box-simple">
                         <div class="icon-outlined"><a href="#"><i class="fa fa-lightbulb-o"></i></a></div>
                         <h3 class="h4">个人中心</h3>
-                        <p>By filling in detailed personal information, you can find more people who share your interests, and at the same time, let more people pay attention to you.</p>
+                        <p>通过填写详细的个人信息，您可以找到更多与您有共同兴趣的人，同时让更多人关注您。</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="box-simple">
                         <div class="icon-outlined"><a href="#"><i class="fa fa-envelope-o"></i></a></div>
                         <h3 class="h4">最新活动</h3>
-                        <p>Bringing together various activities, when netizens enter the website, they can find their own activities according to their own needs. The activity supermarkets on the network can initiate activities or participate in activities on such websites. Various activities are in inside</p>
+                        <p>心理过程不仅体现在人类的身体活动中，而且还在人类互动的活动中。 沟通活动是接触的过程，人与人之间的信息交流和相互理解，即人与人之间的互动过程。</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="box-simple">
                         <div class="icon-outlined"><a href="/advisoryLogin"><i class="fa fa-user"></i></a></div>
                         <h3 class="h4">心理咨询师入口</h3>
-                        <p>Entrance to a person who performs management functions, directs or coordinates others to complete specific tasks in the organization</p>
+                        <p>咨询师请进</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+</div>
 
 
 

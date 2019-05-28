@@ -202,6 +202,13 @@
       <version>1.0</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.mahout</groupId>
+      <artifactId>mahout-taste-webapp</artifactId>
+      <version>0.4</version>
+    </dependency>
+
+
 
 
 
